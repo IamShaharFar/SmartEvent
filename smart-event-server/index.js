@@ -13,7 +13,7 @@ config();
 
 const port = 5000;
 const mongodbUri =
-  "mongodb+srv://drshacksmartevent:199FARAD@smartevent.n9ax0ah.mongodb.net/?retryWrites=true&w=majority";
+  process.env.MONGO_URL;
 
 mongoose
   .connect(mongodbUri, {
