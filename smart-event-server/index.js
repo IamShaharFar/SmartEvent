@@ -60,12 +60,10 @@ app.post("/", async (req, res) => {
     const apiCall = new GptApiCall({
       clientIp: Ip,
       message: message,
-      response: response,
+      response: "response",
     });
-    console.log("new request - " + apiCall)
-    // await apiCall.save();
-    // const event = "event "
-    const event = JSON.parse(response.data.choices[0].message.content);
+    const event = response.data.choices[0].message.content;
+    apiCall.save();
     res.status(201).json({event: event});
   } catch (err) {
     console.log(err);

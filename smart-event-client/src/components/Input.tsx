@@ -37,7 +37,7 @@ const Input = () => {
         alert("You approached the limit of requests per day");
       } else {
         console.log(response.data);
-        const event = response.data.event;
+        const event = JSON.parse(response.data.event);
         setDetails(event);
         console.log(event);
       }
@@ -58,93 +58,103 @@ const Input = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <div className="row">
-        <div className="col-md-8 offset-md-2">
-          <div className="form-group">
-            <h1>Enter the invitation confirmation message:</h1>
-            <textarea
-              className="form-control"
-              id="message"
-              rows={4}
-              value={message}
-              onChange={handleChange}
-              placeholder="Please insert your event message"
-            />
-          </div>
-          <button className="btn btn-primary" onClick={handleSubmit}>
-            {isLoading ? (
-              <span
-                className="spinner-border spinner-border-sm"
-                role="status"
-                aria-hidden="true"
-              ></span>
-            ) : (
-              "Make an event"
-            )}
-          </button>
-          {details && (
-            <div>
-              <div>
-                <span>Name: </span>
-                <input
-                  value={details.name || ""}
-                  onChange={(e) => handleInputChange(e, "name")}
-                />
-              </div>
-              <div>
-                <span>Description: </span>
-                <input
-                  value={details.description || ""}
-                  onChange={(e) => handleInputChange(e, "description")}
-                />
-              </div>
-              <div>
-                <span>StartDate: </span>
-                <input
-                  value={details.startDate || ""}
-                  onChange={(e) => handleInputChange(e, "startDate")}
-                />
-              </div>
-              <div>
-                <span>StartTime: </span>
-                <input
-                  value={details.startTime || ""}
-                  onChange={(e) => handleInputChange(e, "startTime")}
-                />
-              </div>
-              <div>
-                <span>Location: </span>
-                <input
-                  value={details.location || ""}
-                  onChange={(e) => handleInputChange(e, "location")}
-                />
-              </div>
-              <div>
-                <span>EndDate: </span>
-                <input
-                  value={details.endDate || ""}
-                  onChange={(e) => handleInputChange(e, "endDate")}
-                />
-              </div>
-              <div>
-                <span>EndTime: </span>
-                <input
-                  value={details.endTime || ""}
-                  onChange={(e) => handleInputChange(e, "endTime")}
-                />
-              </div>
-              <div>
-                <span>Organizer: </span>
-                <input
-                  value={details.organizer || ""}
-                  onChange={(e) => handleInputChange(e, "organizer")}
-                />
-              </div>
-            </div>
+    <div className="input-container">
+      <div className="centered-content">
+        <h1 className="input-heading">
+          This is an event management application that utilizes the
+          AI to make a the add to calender procces much faster.<br/><br/>
+          Enter the invitation confirmation message:
+        </h1>
+        <textarea
+          className="input-textarea"
+          id="message"
+          rows={10}
+          value={message}
+          maxLength={500}
+          onChange={handleChange}
+          placeholder="Please insert your event message"
+        />
+        <button className="input-button" onClick={handleSubmit}>
+          {isLoading ? (
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+          ) : (
+            "Make an event"
           )}
-          <CalenderButtons {...details} />
-        </div>
+        </button>
+        {details && (
+          <div className="details-container">
+            <p>{details.startDate}</p>
+            <div className="detail">
+              <span className="detail-label">Name:</span>
+              <input
+                className="detail-input"
+                value={details.name || ""}
+                onChange={(e) => handleInputChange(e, "name")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">Description:</span>
+              <input
+                className="detail-input"
+                value={details.description || ""}
+                onChange={(e) => handleInputChange(e, "description")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">Start Date:</span>
+              <input
+                className="detail-input"
+                value={details.startDate || ""}
+                onChange={(e) => handleInputChange(e, "startDate")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">Start Time:</span>
+              <input
+                className="detail-input"
+                value={details.startTime || ""}
+                onChange={(e) => handleInputChange(e, "startTime")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">Location:</span>
+              <input
+                className="detail-input"
+                value={details.location || ""}
+                onChange={(e) => handleInputChange(e, "location")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">End Date:</span>
+              <input
+                className="detail-input"
+                value={details.endDate || ""}
+                onChange={(e) => handleInputChange(e, "endDate")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">End Time:</span>
+              <input
+                className="detail-input"
+                value={details.endTime || ""}
+                onChange={(e) => handleInputChange(e, "endTime")}
+              />
+            </div>
+            <div className="detail">
+              <span className="detail-label">Organizer:</span>
+              <input
+                className="detail-input"
+                value={details.organizer || ""}
+                onChange={(e) => handleInputChange(e, "organizer")}
+              />
+            </div>
+          </div>
+        )}
+        <CalenderButtons {...details} />
       </div>
     </div>
   );

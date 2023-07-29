@@ -4,6 +4,9 @@ import "./App.css";
 import "add-to-calendar-button";
 import CalenderButtons from "./components/CalenderButtons";
 import Input from "./components/Input";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
 function App() {
   const randomProps = {
@@ -32,7 +35,11 @@ function App() {
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossOrigin="anonymous"
       ></link>
+      <script src="https://kit.fontawesome.com/199ad8a260.js" crossOrigin="anonymous"></script>
+      <Header />
+      <Hero />
       <Input />
+      <Footer />
       {/* <CalenderButtons {...randomProps} /> */}
     </div>
   );

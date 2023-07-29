@@ -1,38 +1,191 @@
-.App {
-  text-align: center;
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #f9f9f9;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Header css*/
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.header .buttons-container a {
+  text-decoration: none; 
+}
+
+.header .buttons-container .linkedin-button:hover {
+  color: #6102d4;
+  border-radius: 10px;
+}
+
+.header .buttons-container .portfolio-button:hover {
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.portfolio-button {
+  background-color: #6102d4;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.linkedin-button {
+  background-color: #ffffff;
+  color: #6102d4;
+  border: 2px solid #6102d4;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*Hero css*/
+.hero-container {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.main-sentence {
+  font-size: 72px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 20px;
+  animation: moveText 10s infinite;
+}
+
+.sub-sentence {
+  font-size: 24px;
+  color: #6102d4;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(50px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/*Input css*/
+.input-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: #f9f9f9;
 }
 
-.App-link {
-  color: #61dafb;
+.centered-content {
+  width: 100%;
+  max-width: 500px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-heading {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.input-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.input-button {
+  padding: 8px 16px;
+  background-color: #6102d4;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.details-container {
+  margin-top: 20px;
+}
+
+.detail {
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 100px;
+}
+
+.detail-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+
+
+/*Footer css*/
+.footer {
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: #333333;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.icon {
+  font-size: 30px;
+  color: #333333;
+}
+
+.icon:hover {
+  color: #6102d4;
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777777;
+
 }

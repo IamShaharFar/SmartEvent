@@ -8,13 +8,14 @@ const CalenderButtons = (props: any) => {
         name={props.name}
         description={props.description}
         startDate={props.startDate}
-        // startTime={props.startTime}
+        startTime={props.startTime}
         options={["Apple", "Google"]}
         location={props.location}
         endDate={props.endDate}
-        // endTime={props.endTime}
+        endTime={props.endTime}
         timeZone="Asia/Jerusalem"
-        // organizer={props.organizer}
+        organizer={props.organizer}
+        lightMode="dark"
       ></AddToCalendarButton>
     </div>
   );
