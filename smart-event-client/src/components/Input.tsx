@@ -25,14 +25,13 @@ const Input = () => {
   const handleSubmit = async () => {
     try {
       setIsLoading(true);
-      const apiUrl = "http://localhost:5000";
+      const apiUrl = "https://smart-event-server.onrender.com/";
       const response = await axios.post(apiUrl, {
         message: message,
       });
 
       setIsLoading(false);
 
-      // Check if the response status is 400 and show an alert
       if (response.status === 400) {
         alert("You approached the limit of requests per day");
       } else {

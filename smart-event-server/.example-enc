@@ -1,2 +1,0 @@
-OPEN_AI_API_KEY=sk-Gsgq2VjU9lqaXjY6mT3BlbIunJVSWeOk8XwkFxSJcTvE4qAc
-MONGO_URL='mongodb+srv://<user>:<pws>@<db name>/?retryWrites=true&w=majority'
