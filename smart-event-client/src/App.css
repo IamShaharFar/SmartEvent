@@ -2,7 +2,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-body{
+body {
   background-color: #f9f9f9;
 }
 
@@ -28,7 +28,7 @@ body{
 }
 
 .header .buttons-container a {
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .header .buttons-container .linkedin-button:hover {
@@ -185,5 +185,31 @@ body{
   margin-top: 20px;
   font-size: 14px;
   color: #777777;
+
+}
+
+@media (max-width: 1000px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .buttons-container {
+    justify-content: flex-end;
+    margin-top: 10px;
+    /* Add some margin at the top for spacing */
+  }
+
+  /* Optional: To center the logo on mobile */
+  .logo {
+    margin-top: 10px;
+  }
+
+  .input-heading {
+    text-align: center;
+  }
+
+  .footer {
+    padding-top: 30px;
+  }
 
 }

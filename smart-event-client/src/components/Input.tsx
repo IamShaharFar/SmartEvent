@@ -18,22 +18,27 @@ interface EventDetails {
 
 const Input = () => {
   const props: EventDetails = {
-    name: "Movie: Oppenheimer",
-    description: "Planet - Rascheltz",
-    startDate: "2023-07-27",
-    startTime: "08:30",
+    name: "Event's name",
+    description: "",
+    startDate: "2024-01-01",
+    startTime: "10:00",
     options: ["Apple", "Google"],
-    location: "IMAX 5, Faradyan shahar",
-    endDate: "2023-07-27",
+    location: "",
+    endDate: "",
     endTime: "11:00",
     timeZone: "Asia/Jerusalem",
-    organizer: "Rascheltz Planet",
+    organizer: "",
     lightMode: "dark",
   };
 
   const [message, setMessage] = useState("");
   const [details, setDetails] = useState<EventDetails | null>(props);
   const [isLoading, setIsLoading] = useState(false);
+  const [isEvent, setIsEvent] = useState(false);
+
+const newProp = () => {
+  return props == details;
+}
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
@@ -54,6 +59,9 @@ const Input = () => {
       } else {
         console.log(response.data);
         const event = JSON.parse(response.data.event);
+        if(event.endTime == ""){
+          event.endTime = event.startTime
+        }
         setDetails(event);
         console.log(event);
       }
@@ -112,6 +120,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.name || ""}
                 onChange={(e) => handleInputChange(e, "name")}
+                placeholder="Event's name"
               />
             </div>
             <div className="detail">
@@ -120,6 +129,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.description || ""}
                 onChange={(e) => handleInputChange(e, "description")}
+                placeholder="Event's description"
               />
             </div>
             <div className="detail">
@@ -128,6 +138,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.startDate || ""}
                 onChange={(e) => handleInputChange(e, "startDate")}
+                placeholder="YYYY-MM-DD"
               />
             </div>
             <div className="detail">
@@ -136,6 +147,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.startTime || ""}
                 onChange={(e) => handleInputChange(e, "startTime")}
+                placeholder="HH:MM"
               />
             </div>
             <div className="detail">
@@ -144,6 +156,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.location || ""}
                 onChange={(e) => handleInputChange(e, "location")}
+                placeholder="Event's location"
               />
             </div>
             <div className="detail">
@@ -152,6 +165,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.endDate || ""}
                 onChange={(e) => handleInputChange(e, "endDate")}
+                placeholder="YYYY-MM-DD"
               />
             </div>
             <div className="detail">
@@ -160,6 +174,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.endTime || ""}
                 onChange={(e) => handleInputChange(e, "endTime")}
+                placeholder="HH:MM"
               />
             </div>
             <div className="detail">
@@ -168,6 +183,7 @@ const Input = () => {
                 className="detail-input"
                 value={details.organizer || ""}
                 onChange={(e) => handleInputChange(e, "organizer")}
+                placeholder="Event's organizer"
               />
             </div>
           </div>
