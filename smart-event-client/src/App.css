@@ -196,12 +196,15 @@ body {
   .buttons-container {
     justify-content: flex-end;
     margin-top: 10px;
-    /* Add some margin at the top for spacing */
   }
 
-  /* Optional: To center the logo on mobile */
   .logo {
     margin-top: 10px;
+  }
+
+  .main-sentence {
+    animation: none;
+    font-size: 60px;
   }
 
   .input-heading {

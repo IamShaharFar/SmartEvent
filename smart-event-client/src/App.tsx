@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "add-to-calendar-button";
@@ -9,6 +9,11 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
 function App() {
+
+  useEffect(() => {
+    document.title = 'Smart Event';
+  }, []);
+
   const randomProps = {
     name: "Soccer Match",
     description: "A friendly soccer match with friends.",
