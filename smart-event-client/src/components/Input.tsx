@@ -7,15 +7,32 @@ interface EventDetails {
   description?: string;
   startDate?: string;
   startTime?: string;
+  options?: any;
   location?: string;
   endDate?: string;
   endTime?: string;
+  timeZone?: string;
   organizer?: string;
+  lightMode?: string;
 }
 
 const Input = () => {
+  const props: EventDetails = {
+    name: "Movie: Oppenheimer",
+    description: "Planet - Rascheltz",
+    startDate: "2023-07-27",
+    startTime: "08:30",
+    options: ["Apple", "Google"],
+    location: "IMAX 5, Faradyan shahar",
+    endDate: "2023-07-27",
+    endTime: "11:00",
+    timeZone: "Asia/Jerusalem",
+    organizer: "Rascheltz Planet",
+    lightMode: "dark",
+  };
+
   const [message, setMessage] = useState("");
-  const [details, setDetails] = useState<EventDetails | null>(null);
+  const [details, setDetails] = useState<EventDetails | null>(props);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -60,8 +77,10 @@ const Input = () => {
     <div className="input-container">
       <div className="centered-content">
         <h1 className="input-heading">
-          This is an event management application that utilizes the
-          AI to make a the add to calender procces much faster.<br/><br/>
+          This is an event management application that utilizes the AI to make a
+          the add to calender procces much faster.
+          <br />
+          <br />
           Enter the invitation confirmation message:
         </h1>
         <textarea

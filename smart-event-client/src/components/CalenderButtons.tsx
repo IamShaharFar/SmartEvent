@@ -1,22 +1,39 @@
 import React from "react";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 
-const CalenderButtons = (props: any) => {
+interface EventDetails {
+  name?: string;
+  description?: string;
+  startDate?: string;
+  startTime?: string;
+  options?: any;
+  location?: string;
+  endDate?: string;
+  endTime?: string;
+  timeZone?: string;
+  organizer?: string;
+  lightMode?: string;
+}
+
+const CalenderButtons = (props: EventDetails) => {
   return (
     <div className="d-flex justify-content-center">
-      <AddToCalendarButton 
-        name={props.name}
-        description={props.description}
-        startDate={props.startDate}
-        startTime={props.startTime}
-        options={["Apple", "Google"]}
-        location={props.location}
-        endDate={props.endDate}
-        endTime={props.endTime}
-        timeZone="Asia/Jerusalem"
-        organizer={props.organizer}
-        lightMode="dark"
-      ></AddToCalendarButton>
+      <div className="add-to-calender-btn">
+        <AddToCalendarButton
+          name={props.name}
+          options={["Apple", "Google"]}
+          location={props.location}
+          startDate={props.startDate}
+          endDate={props.endDate}
+          startTime={props.startTime}
+          endTime={props.endTime}
+          timeZone="Asia/Jerusalem"
+          lightMode="dark"
+          buttonStyle="round"
+          size="8"
+          label="Hit me to save!"
+        ></AddToCalendarButton>
+      </div>
     </div>
   );
 };
