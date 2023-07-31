@@ -36,9 +36,6 @@ const Input = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isEvent, setIsEvent] = useState(false);
 
-const newProp = () => {
-  return props == details;
-}
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
@@ -53,14 +50,15 @@ const newProp = () => {
       });
 
       setIsLoading(false);
+      setIsEvent(true);
 
       if (response.status === 400) {
         alert("You approached the limit of requests per day");
       } else {
         console.log(response.data);
         const event = JSON.parse(response.data.event);
-        if(event.endTime == ""){
-          event.endTime = event.startTime
+        if (event.endTime == "") {
+          event.endTime = event.startTime;
         }
         setDetails(event);
         console.log(event);
@@ -111,7 +109,7 @@ const newProp = () => {
             "Make an event"
           )}
         </button>
-        {details && (
+        {isEvent && (details && (
           <div className="details-container">
             <p>{details.startDate}</p>
             <div className="detail">
@@ -187,7 +185,8 @@ const newProp = () => {
               />
             </div>
           </div>
-        )}
+        ))}
+
         <CalenderButtons {...details} />
       </div>
     </div>
